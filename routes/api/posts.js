@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 
 //@router Delete api/posts:id
 //@desc delete an post
-router.delete('/id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const posts = await Posts.findByIdAndDelete(req.params.id);
         if (!posts) throw Error('Something wrong while delete');
@@ -51,7 +51,7 @@ router.delete('/id', async (req, res) => {
 
 //@router Update api/posts:id
 //@desc update an post
-router.patch('/id', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         const posts = await Posts.findByIdAndUpdate(req.params.id, req.body);
         if (!posts) throw Error('Something wrong while update');
